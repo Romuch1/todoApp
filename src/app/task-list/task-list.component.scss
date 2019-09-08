@@ -1,15 +1,11 @@
-button{
-  background: rgb(1, 29, 51);
-  border-color: transparent;
-  color: #fff;
-  cursor: pointer;
+.mat-list-item{
+  margin-bottom: 5px;
+  border-bottom: 1px solid rebeccapurple;
 }
-li{
-  margin-bottom: 40px;
+.mat-list {
+  max-width: 400px;
+  margin: 0 auto;
 }
-input[type="checkbox"]:checked{
-  margin: 5px;
-}
-.completed{
-  opacity: .5;
+.mat-list h2{
+  text-align: center;
 }

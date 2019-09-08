@@ -1,9 +1,8 @@
-<ul>
-  <li *ngIf="task" [id]="task.slug">
-    {{task.slug}}
-    {{task.name}}
-    {{task.description}}
-    {{task.complete}}
-  </li>
-</ul>
-<button (click)="returnList()">Return to List</button>
+<mat-card *ngIf="task">
+  <mat-card-title>{{task.name}}</mat-card-title>
+  <mat-card-subtitle>Complete: {{task.complete}}</mat-card-subtitle>
+  <mat-card-content>{{task.description}}</mat-card-content>
+</mat-card>
+<mat-toolbar>
+  <button mat-flat-button color="primary" (click)="returnList()">All tasks</button>
+</mat-toolbar>

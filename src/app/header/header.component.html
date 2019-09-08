@@ -1,4 +1,4 @@
-<div *ngIf="authService.isLoggedIn()">
+<mat-toolbar *ngIf="authService.isLoggedIn()">
   Hi {{currentUser.username}}
-  <button (click)="logout()">Logout</button>
-</div>
+  <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+</mat-toolbar>

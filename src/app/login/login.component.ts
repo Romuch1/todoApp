@@ -24,6 +24,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getUsernameMessage() {
+    return this.loginForm.controls.username.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getPasswordMessage() {
+    return this.loginForm.controls.password.hasError('required') ? 'You must enter a value' :
+      this.loginForm.controls.password.hasError('minlength') ? 'Use 6 or more characters with a mix of letters' :
+        '';
+  }
+
   get formControls() {
     return this.loginForm.controls;
   }

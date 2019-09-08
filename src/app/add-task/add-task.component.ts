@@ -27,6 +27,14 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+  getNameMessage() {
+    return this.createForm.controls.name.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getDescriptionMessage() {
+    return this.createForm.controls.description.hasError('required') ? 'You must enter a value' : '';
+  }
+
   get formControls() {
     return this.createForm.controls;
   }

@@ -1,27 +1,14 @@
 <div class="add-task">
-  <h2>Add task</h2>
+  <mat-toolbar>Add task</mat-toolbar>
   <form [formGroup]="createForm" class="add-form" (ngSubmit)="createTask()">
-
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="text" placeholder="Username" formControlName="name">
-        </p>
-        <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
-          <div *ngIf="formControls.name.errors.required">Name is required</div>
-        </div>
-
-
-
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.description.errors }">
-          <input type="text" placeholder="Password" formControlName="description">
-        </p>
-        <div *ngIf="isSubmitted && formControls.description.errors" class="help-block">
-          <div *ngIf="formControls.description.errors.required">Description is required</div>
-        </div>
-
-
-        <p>
-          <input type="submit" value="Add">
-        </p>
-
+    <mat-form-field>
+      <input matInput placeholder="Task name" formControlName="name">
+      <mat-error class="error-message" *ngIf="formControls.name.invalid">{{getNameMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Task description" formControlName="description">
+      <mat-error class="error-message" *ngIf="formControls.description.invalid">{{getDescriptionMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary">Add task</button>
   </form>
 </div>

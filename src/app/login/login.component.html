@@ -1,24 +1,16 @@
 <div class="login">
-  <h2 class="login-header">Log in</h2>
-  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
-
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
-      <input type="text" placeholder="Username" formControlName="username">
-    </p>
-    <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
-      <div *ngIf="formControls.username.errors.required">Username is required</div>
-    </div>
-
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-      <input type="password" placeholder="Password" formControlName="password">
-    </p>
-    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
-      <div *ngIf="formControls.password.errors.required">Password is required</div>
-      <div *ngIf="formControls.password.errors.minlength">Use 6 or more characters with a mix of letters</div>
-    </div>
-
-    <p>
-      <input type="submit" value="Log in">
-    </p>
-  </form>
+  <div class="login-inner">
+    <mat-toolbar>Login</mat-toolbar>
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error class="error-message" *ngIf="formControls.username.invalid">{{getUsernameMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <mat-error class="error-message" *ngIf="formControls.password.invalid">{{getPasswordMessage()}}</mat-error>
+      </mat-form-field>
+      <button mat-flat-button color="primary">Login</button>
+    </form>
+  </div>
 </div>
