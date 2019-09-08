@@ -1,0 +1,4 @@
+<div *ngIf="authService.isLoggedIn()">
+  Hi {{currentUser.username}}
+  <button (click)="logout()">Logout</button>
+</div>
