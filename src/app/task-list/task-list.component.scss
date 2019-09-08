@@ -1,0 +1,15 @@
+button{
+  background: rgb(1, 29, 51);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+li{
+  margin-bottom: 40px;
+}
+input[type="checkbox"]:checked{
+  margin: 5px;
+}
+.completed{
+  opacity: .5;
+}

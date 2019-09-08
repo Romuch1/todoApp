@@ -1,1 +1,12 @@
-<p>task-list works!</p>
+<ul>
+  <li *ngFor="let task of tasks" [ngClass]="{completed: task.complete}" (click)="updateTask(task.id)">
+    {{task.id}}
+    {{task.name}}
+    {{task.description}}
+    {{task.complete}}
+    <button (click)="deleteTask(task.id)">Delete</button>
+    <button (click)="openTask(task.id)">Detail</button>
+    <input type="checkbox" [checked]="task.complete">
+  </li>
+</ul>
+<app-add-task (task)="addTask($event)"></app-add-task>

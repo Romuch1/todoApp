@@ -1,0 +1,27 @@
+<div class="add-task">
+  <h2>Add task</h2>
+  <form [formGroup]="createForm" class="add-form" (ngSubmit)="createTask()">
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="text" placeholder="Username" formControlName="name">
+        </p>
+        <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+          <div *ngIf="formControls.name.errors.required">Name is required</div>
+        </div>
+
+
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.description.errors }">
+          <input type="text" placeholder="Password" formControlName="description">
+        </p>
+        <div *ngIf="isSubmitted && formControls.description.errors" class="help-block">
+          <div *ngIf="formControls.description.errors.required">Description is required</div>
+        </div>
+
+
+        <p>
+          <input type="submit" value="Add">
+        </p>
+
+  </form>
+</div>
